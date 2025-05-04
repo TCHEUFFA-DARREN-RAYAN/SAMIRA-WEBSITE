@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Elegance Beauty Salon</title>
+    <meta name="description" content="Contact Elegance Beauty Salon to book your appointment or inquire about our services. Find our location, hours, and contact information.">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js" defer ></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Elegance Beauty Salon Logo">
+                <h1>Elegance Beauty</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Title -->
+        <section class="hero" style="padding: 80px 0;">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team to book appointments, ask questions, or provide feedback.</p>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>1234 Mountain Rd, <br>Moncton NB E1C 2T6</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p>+1 (506) 899-6924</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p>tcheuffadarren1@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Opening Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 8:00 PM<br>
+                                Saturday: 9:00 AM - 6:00 PM<br>
+                                Sunday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="social-links" style="margin-top: 30px;">
+                            <a href="#" class="social-links" ><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-links"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-links"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-links"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="return validateForm()">   <!--i will create an accoutn on formspree to see the emails sent there -->                       
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="contact.html">
+                          
+                            <div class="form-group">
+                              <label for="name">Your Name</label>
+                              <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label for="email">Your Email</label>
+                              <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label for="phone">Your Phone</label>
+                              <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+                          
+                            <div class="form-group">
+                              <label for="subject">Subject</label>
+                              <select id="subject" name="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="appointment">Book an Appointment</option>
+                                <option value="inquiry">Service Inquiry</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                              </select>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label for="message">Your Message</label>
+                              <textarea id="message" name="message" class="form-control" required></textarea>
+                            </div>
+                          
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                          </form>
+                          
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Find Us</h2>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.466923162421!2d-64.83151450753212!3d46.108017102107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca0b8b109d07c6b%3A0x1d618d2d9353d789!2sNBCC%20Moncton%20Campus!5e1!3m2!1sen!2sca!4v1746217649280!5m2!1sen!2sca" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Information Section -->
+        <section class="section" style="background-color: var(--light-gray);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Booking Information</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; text-align: center;">
+                    <div>
+                        <i class="fas fa-calendar-alt" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
+                        <h3 class="contact-question" >Appointments</h3>
+                        <p>We recommend booking appointments in advance to ensure availability. Walk-ins are welcome but subject to availability.</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-clock" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
+                        <h3 class="contact-question">Arrival Time</h3>
+                        <p>Please arrive 10-15 minutes before your scheduled appointment to complete any necessary paperwork and relax before your service.</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-ban" class="contact-bookin-info" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
+                        <h3  class="contact-question">Cancellation Policy</h3>
+                        <p>We require 24 hours notice for cancellations. Late cancellations or no-shows may be subject to a fee.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--dark-blue); margin-bottom: 10px; font-size: 1.3rem;">Do you offer gift certificates?</h3>
+                        <p>Yes, we offer gift certificates for all our services and packages. They can be purchased in-person at our salon or by phone.</p>
+                    </div>
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--dark-blue); margin-bottom: 10px; font-size: 1.3rem;">What forms of payment do you accept?</h3>
+                        <p>We accept cash, all major credit cards, and mobile payment options like Apple Pay and Google Pay.</p>
+                    </div>
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--dark-blue); margin-bottom: 10px; font-size: 1.3rem;">Do you offer services for children?</h3>
+                        <p>Yes, we provide haircuts and styling services for children of all ages. We strive to make the experience comfortable and enjoyable for our youngest clients.</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--dark-blue); margin-bottom: 10px; font-size: 1.3rem;">What if I'm not satisfied with my service?</h3>
+                        <p>Your satisfaction is our priority. If you're not completely happy with your service, please let us know within 7 days, and we'll do our best to make it right.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="section" style="background-color: var(--pink); color: var(--white);">
+            <div class="container" style="text-align: center;">
+                <h2 style="color: var(--white); font-size: 2.5rem; margin-bottom: 20px;">Ready to Book Your Appointment?</h2>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px;">Contact us today to schedule your visit to Elegance Beauty Salon. We look forward to helping you look and feel your best!</p>
+                <a href="tel:1234567890" class="btn" style="background-color: var(--white); color: var(--pink); border-color: var(--white);">Call Now: (123) 456-7890</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Elegance Beauty Salon Logo">
+                        <h2>Elegance Beauty</h2>
+                    </div>
+                    <p>Providing premium hair and beauty services for men, women, and children. Our mission is to help you look and feel your absolute best.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul>
+                        <li><a href="services.html#hair">Hair Styling</a></li>
+                        <li><a href="services.html#treatments">Hair Treatments</a></li>
+                        <li><a href="services.html#facial">Facial Treatments</a></li>
+                        <li><a href="services.html#eyebrows">Eyebrow Services</a></li>
+                        <li><a href="services.html#waxing">Waxing & Threading</a></li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3 class="footer-heading">Opening Hours</h3>
+                    <p><span>Monday - Friday:</span> 9:00 AM - 8:00 PM</p>
+                    <p><span>Saturday:</span> 9:00 AM - 6:00 PM</p>
+                    <p><span>Sunday:</span> 10:00 AM - 4:00 PM</p>
+                    <p style="margin-top: 20px;"><i class="fas fa-phone" style="color: var(--gold); margin-right: 10px;"></i>+1 (506) 899-6924</p>
+                    <p><i class="fas fa-envelope" style="color: var(--gold); margin-right: 10px;"></i> tcheuffadarren1@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elegance Beauty Salon. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
