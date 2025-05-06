@@ -690,11 +690,16 @@ footer {
 
 .footer-hours p {
   margin-bottom: 10px;
+  min-width: 300px;
 }
 
 .footer-hours span {
   color: var(--gold);
   font-weight: 600;
+}
+.footer-hours p a {
+  color: #ffffff;
+  text-decoration: none; 
 }
 
 .footer-bottom {
