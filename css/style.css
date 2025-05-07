@@ -143,14 +143,37 @@ main {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(26, 43, 71, 0.7), rgba(26, 43, 71, 0.7)), url('../images/hero-bg.jpg');
+  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/index-bg-2.jpg');
   background-size: cover;
   background-position: center;
   color: var(--white);
   text-align: center;
   padding: 100px 0;
 }
-
+.services-bg-img{
+  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/service-bg-1.jpg');
+  background-size:cover; /* or '100% 100%' */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.about-bg-img{
+  background: linear-gradient(rgba(213, 117, 221, 0.7), rgba(55, 75, 108, 0.7)), url('../images/placeholders/about-img1.jpg');
+  background-size:cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.gallery-bg-img{
+  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/gallery-bg-1.jpg');
+  background-size:cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.contact-bg-img{
+  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/contact-img-1.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .hero h2 {
   font-size: 3rem;
   margin-bottom: 20px;
