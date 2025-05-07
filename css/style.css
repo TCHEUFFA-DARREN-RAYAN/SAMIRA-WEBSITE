@@ -169,7 +169,7 @@ main {
   background-position: center;
 }
 .contact-bg-img{
-  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/contact-img-1.jpg');
+  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/contact-img-1.webp');
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
