@@ -283,6 +283,20 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
 }
+.eyelash-mod{
+  width: 100%;           /* or a fixed width like 600px */
+  height: 400px;         /* total height you want for both images */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.eyelash-mod img{
+  flex: 1;               /* each image gets 50% of height */
+  width: 100%;           /* take full container width */
+  object-fit: contain;   /* scale without cropping */
+  display: block;
+}
+
 
 .service-card {
   background-color: var(--white);
@@ -300,7 +314,16 @@ main {
   height: 200px;
   overflow: hidden;
 }
-
+.img-mod{
+  width: 100%;         /* or a fixed width like 600px */
+  height: 300px;       /* fixed height */
+  display: flex;
+}
+.img-mod img {
+  flex: 1;             /* each image takes 50% */
+  height: 100%;
+  object-fit: contain; 
+}
 .service-card-img img {
   width: 100%;
   height: 100%;
