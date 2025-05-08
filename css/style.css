@@ -291,12 +291,16 @@ main {
   overflow: hidden;
 }
 .eyelash-mod img{
-  flex: 1;               /* each image gets 50% of height */
-  width: 100%;           /* take full container width */
-  object-fit: contain;   /* scale without cropping */
+   flex: 1 1 0;          /*  each image gets 50% */
+  max-width: 50%;         /* prevents overflow */
+  height: 100%;           /* scale to div height */
+  object-fit: contain;    /* keep full image in view */
   display: block;
 }
-
+.cneter-T{
+  padding-left: 18%;
+  padding-right: 18%;
+}
 
 .service-card {
   background-color: var(--white);
