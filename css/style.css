@@ -4,7 +4,7 @@
   --gold: #d4af37;
   --dark-gold: #b8860b;
   --light-gold: #f5e7c1;
-  --dark-blue: #1a2b47;
+   --dark-blue: #0a1f44;
   --light-blue: #3a4b67;
   --pink: #ff69b4;
   --light-pink: #ffb6c1;
@@ -80,6 +80,9 @@ header {
   color: var(--gold);
   font-size: 1.8rem;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Navigation Styles */
@@ -154,7 +157,7 @@ main {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/index-bg-2-min.jpg');
+  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/index-bg-2-min.jpg');
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -162,25 +165,25 @@ main {
   padding: 100px 0;
 }
 .services-bg-img{
-  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/service-bg-1-min.jpg');
-  background-size:cover; /* or '100% 100%' */
+  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/service-bg-1-min.jpg');
+  background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .about-bg-img{
-  background: linear-gradient(rgba(213, 117, 221, 0.7), rgba(55, 75, 108, 0.7)), url('../images/placeholders/about-img1-min.jpg');
+  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/about-img1-min.jpg');
   background-size:cover; 
   background-repeat: no-repeat;
   background-position: center;
 }
 .gallery-bg-img{
-  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/gallery-bg-1-min.jpg');
+  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/gallery-bg-1-min.jpg');
   background-size:cover; 
   background-repeat: no-repeat;
   background-position: center;
 }
 .contact-bg-img{
-  background: linear-gradient(rgba(195, 115, 203, 0.7), rgba(26, 43, 71, 0.7)), url('../images/placeholders/contact-img-1.webp');
+  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/contact-img-1.webp');
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -830,6 +833,9 @@ footer {
     font-size: 1.5rem;
   }
   
+    .logo img {
+    height: 40px;
+  }
   .section {
     padding: 60px 0;
   }
@@ -852,5 +858,8 @@ footer {
   
   .gallery-grid, .services-grid, .team-grid {
     grid-template-columns: 1fr;
+  }
+    .footer-logo h2 {
+    font-size: 1.2rem;
   }
 }
