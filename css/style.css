@@ -176,6 +176,7 @@ main {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .gallery-bg-img{
   background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/gallery-bg-1-min.jpg');
   background-size:cover; 
