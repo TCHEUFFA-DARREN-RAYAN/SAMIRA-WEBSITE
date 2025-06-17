@@ -1,8 +1,8 @@
 /* Color Palette */
 /* i created some css variable to ease color modifications when i will be doing mentainance in the future*/
 :root {
-  --gold: #d4af37;
-  --dark-gold: #b8860b;
+  --gold: #cfa829;
+  --dark-gold: #c5910e;
   --light-gold: #f5e7c1;
    --dark-blue: #0a1f44;
   --light-blue: #3a4b67;
@@ -17,15 +17,13 @@
   
   --theme-Main-bg-ft: #121212;
   --theme-Button:#FFD700;
-  --theme-header:#0A1F44;
+  /* --theme-header:#0A1F44; */
   --theme-content:#1E1E1E;
   --theme-text-col1 :#F5F5F5;
   --theme-text-col2:#B0B3B8;
 
 
 }
-
-
 
 /* Global Styles */
 * {
@@ -51,8 +49,9 @@ body {
 
 /* Header Styles */
 header {
-  background-color: var(--theme-header);
+background: linear-gradient(135deg, #eb1186, #bb30d4, #4b0082);
   box-shadow: 0 2px 10px var(--shadow);
+  border-radius: 1%;
   position: fixed;
   width: 100%;
   top: 0;
@@ -157,7 +156,7 @@ main {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/index-bg-2-min.jpg');
+  background: linear-gradient(rgba(127, 28, 112, 0.8), rgba(66, 22, 102, 0.8)), url('../images/placeholders/index-bg-2-min.jpg');
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -165,26 +164,26 @@ main {
   padding: 100px 0;
 }
 .services-bg-img{
-  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/service-bg-1-min.jpg');
+  background: linear-gradient(rgba(127, 28, 112, 0.8), rgba(66, 22, 102, 0.8)), url('../images/placeholders/service-bg-1-min.jpg');
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .about-bg-img{
-  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/about-img1-min.jpg');
+  background: linear-gradient(rgba(127, 28, 112, 0.8), rgba(66, 22, 102, 0.8)), url('../images/placeholders/about-img1-min.jpg');
   background-size:cover; 
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .gallery-bg-img{
-  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/gallery-bg-1-min.jpg');
+  background: linear-gradient(rgba(127, 28, 112, 0.8), rgba(66, 22, 102, 0.8)), url('../images/placeholders/gallery-bg-1-min.jpg');
   background-size:cover; 
   background-repeat: no-repeat;
   background-position: center;
 }
 .contact-bg-img{
-  background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(26, 58, 108, 0.8)), url('../images/placeholders/contact-img-1.webp');
+  background: linear-gradient(rgba(127, 28, 112, 0.8), rgba(66, 22, 102, 0.8)), url('../images/placeholders/contact-img-1.webp');
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -689,7 +688,8 @@ textarea.form-control {
 
 /* Footer Styles */
 footer {
-  background-color: var(--dark-blue);
+  /* background-color: var(--dark-blue); */
+ background: linear-gradient(135deg, #ba327b, #df2be2, #4b0082);
   color: var(--white);
   padding: 60px 0 20px;
 }
