@@ -28,3 +28,5 @@
 - [x] Package all files  (On-going )
 - [x] Deploy for preview  ( completed ) Testing using my render for free hosting to see how it looks like 
 - [x] Prepare for client handover  (On-going ) doing weekly meetings to tell her how the project it on-going and the achievements i have made 
+
+completed and delivered to client
