@@ -110,15 +110,30 @@ nav ul li a {
   font-size: 1rem;
   transition: all 0.3s ease;
   position: relative;
-  padding: 8px 16px;
+  padding: 6px 10px; 
   border-radius: 20px;
 }
+
 
 nav ul li a:hover {
   color: var(--rose-gold);
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
+.color-animate {
+    border-radius: 20px;
+    list-style: none;
+    color: #d76ba5;
+    background: #E4A5C7;
+    animation: colorCycle 3s infinite alternate ease-in-out;
+  }
+
+  @keyframes colorCycle {
+    0%   { background: #F8BBD9; }
+    50%  { background: #E6D7F0 }
+    100% { background: #dc95bb; }
+  }
+
 
 nav ul li a.active {
   color: var(--rose-gold);
