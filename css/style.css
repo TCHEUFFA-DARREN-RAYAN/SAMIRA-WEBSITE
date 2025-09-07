@@ -139,16 +139,16 @@ nav ul li a:hover {
 .color-animate {
     border-radius: 20px;
     list-style: none;
-    color: #d76ba5;
-    background: #E4A5C7;
+    color: #1a1a1a;
+    background: #d4af37;
     animation: colorCycle 3s infinite alternate ease-in-out;
-  }
+}
 
-  @keyframes colorCycle {
-    0%   { background: #F8BBD9; }
-    50%  { background: #E6D7F0 }
-    100% { background: #dc95bb; }
-  }
+@keyframes colorCycle {
+    0%   { background: #d4af37; }  /* Main golden */
+    50%  { background: #f4e7b1; }  /* Light golden */
+    100% { background: #b8941f; }  /* Dark golden */
+}
 
 
 nav ul li a.active {
