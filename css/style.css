@@ -10,6 +10,9 @@
   --cream-white: #FFF8F5;
   --soft-lavender: #E6D7F0;
   --warm-gray: #8B7D7B;
+
+  /*thread color*/
+  --thread-dark-head:#B85C8A;
   
   /* Legacy colors for compatibility */
   --gold: var(--rose-gold);
@@ -33,6 +36,19 @@
   --theme-text-col1: var(--cream-white);
   --theme-text-col2: var(--warm-gray);
 }
+
+/* thread page color*/
+.hero-thread {
+  background: linear-gradient(rgba(81, 40, 60, 0.8), rgba(127, 88, 109, 0.8)), url('../images/placeholders/Eyebrow-Shaping.avif');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 100px 0;
+}
+
+
+
 
 /* Global Styles */
 * {
@@ -850,12 +866,10 @@ footer {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.footer-logo h2 {
+.footer-logo h4 {
   color: var(--rose-gold);
-  font-size: 1.5rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
-
 .footer-about p {
   margin-bottom: 20px;
 }
