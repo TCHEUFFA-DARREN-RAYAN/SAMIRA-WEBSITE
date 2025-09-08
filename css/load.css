@@ -1,0 +1,221 @@
+         :root {
+             --soft-rose-pink: #F8BBD9;
+             --dusty-rose: #E4A5C7;
+             --blush-pink: #F5E6F0;
+             --rose-gold: #E8B4A0;
+             --deep-mauve: #B85C8A;
+             --cream-white: #FFF8F5;
+             --soft-lavender: #E6D7F0;
+             --warm-gray: #8B7D7B;
+         }
+
+         /* Loading Screen */
+         #loading-screen {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100vw;
+             height: 100vh;
+             background: linear-gradient(135deg, var( --cream-white) 0%, var(--soft-rose-pink) 100%);
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             z-index: 10000;
+             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+         }
+
+         #loading-screen.fade-out {
+             opacity: 0;
+             transform: scale(1.1);
+             pointer-events: none;
+         }
+
+         /* Logo Container */
+         .logo-container {
+             position: relative;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+         }
+
+         /* Spinning Logo */
+         .spinning-logo {
+             width: 80px;
+             height: 80px;
+             background: linear-gradient(45deg, #F8BBD9, #b655c0);
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             animation: smoothSpin 1.5s linear infinite;
+             box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+             position: relative;
+         }
+
+         /* Replace this with your logo image */
+.logo-image {
+    width: 80px;  /* Same as spinning-logo width */
+    height: 80px; /* Same as spinning-logo height */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* This makes image fill the circle */
+}
+
+         /* Smooth spinning animation */
+         @keyframes smoothSpin {
+             0% {
+                 transform: rotate(0deg);
+             }
+
+             100% {
+                 transform: rotate(360deg);
+             }
+         }
+
+         /* Pulse effect around logo */
+         .logo-container::before {
+             content: '';
+             position: absolute;
+             width: 150px;
+             height: 150px;
+             border: 2px solid #8c499d;
+             border-radius: 50%;
+             opacity: 0;
+             animation: pulse 2s ease-in-out infinite;
+         }
+
+         .logo-container::after {
+             content: '';
+             position: absolute;
+             width: 100px;
+             height: 100px;
+             border: 1px solid #764ba2;
+             border-radius: 50%;
+             opacity: 0;
+             animation: pulse 2s ease-in-out infinite 0.5s;
+         }
+
+         @keyframes pulse {
+             0% {
+                 opacity: 0;
+                 transform: scale(0.8);
+             }
+
+             50% {
+                 opacity: 0.6;
+                 transform: scale(1);
+             }
+
+             100% {
+                 opacity: 0;
+                 transform: scale(1.2);
+             }
+         }
+
+         /* Main Website Content */
+         .main-content {
+             position: relative;
+             min-height: 100vh;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+             color: white;
+             padding: 50px 20px;
+             opacity: 0;
+             transform: translateY(20px);
+             transition: all 1s ease-out 0.3s;
+         }
+
+         .main-content.show {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         .main-content h1 {
+             font-size: 3.5em;
+             margin-bottom: 20px;
+             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+             background: linear-gradient(45deg, #fff, #f0f0f0);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+         }
+
+         .main-content p {
+             font-size: 1.3em;
+             max-width: 700px;
+             margin-bottom: 40px;
+             line-height: 1.8;
+             opacity: 0.9;
+         }
+
+         .cta-button {
+             background: linear-gradient(45deg, #667eea, #764ba2);
+             color: white;
+             padding: 18px 40px;
+             border: none;
+             border-radius: 50px;
+             font-size: 18px;
+             font-weight: 600;
+             cursor: pointer;
+             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+             text-decoration: none;
+             display: inline-block;
+             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+         }
+
+         .cta-button:hover {
+             transform: translateY(-3px);
+             box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+             background: linear-gradient(45deg, #5a67d8, #6b46c1);
+         }
+
+         /* Mobile responsive */
+         @media (max-width: 768px) {
+             .spinning-logo {
+                 width: 60px;
+                 height: 60px;
+             }
+
+.logo-image {
+    width: 80px;  /* Same as spinning-logo width */
+    height: 80px; /* Same as spinning-logo height */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* This makes image fill the circle */
+}
+
+             .logo-container::before {
+                 width: 90px;
+                 height: 90px;
+             }
+
+             .logo-container::after {
+                 width: 75px;
+                 height: 75px;
+             }
+
+             .main-content h1 {
+                 font-size: 2.5em;
+             }
+
+             .main-content p {
+                 font-size: 1.1em;
+             }
+         }
+
+         /* Custom loading for different logo shapes */
+         .logo-triangle {
+             width: 0;
+             height: 0;
+             border-left: 25px solid transparent;
+             border-right: 25px solid transparent;
+             border-bottom: 40px solid #ffffff;
+             background: none !important;
+             border-radius: 0;
+         }
+
+         /* Hide scrollbar during loading */
+         body.loading {
+             overflow: hidden;
+         }
