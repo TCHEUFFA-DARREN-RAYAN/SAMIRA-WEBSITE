@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House of Threading - Premium Threading & Eye Lining Services</title>
-    <meta name="description" content="Professional facial threading and eye lining services. Experience precision, elegance, and artistry at House of Threading.">
+    <meta name="description"
+        content="Professional facial threading and eye lining services. Experience precision, elegance, and artistry at House of Threading.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/thread-page.css">
-      <script src="js/thread-page.js" defer></script>
+    <link rel="stylesheet" href="css/thread-page.css">
+    <link rel="stylesheet" href="css/bounce.css">
+    <script src="js/thread-page.js" defer></script>
+    <script src="js/bounce.js" defer></script>
 
 
 </head>
+
 <body>
     <header>
         <div class="container">
             <div class="header-container">
                 <div class="logo">
-                     <img src="images/logo.png" alt="Samira Beautician Salon Salon Logo"> 
+                    <img src="images/logo.png" alt="Samira Beautician Salon Salon Logo">
                     <h1>House of Threading</h1>
                 </div>
                 <nav>
@@ -40,20 +47,45 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="floating-elements">
-                <div class="floating-element"><i class="fas fa-star"></i></div>
-                <div class="floating-element"><i class="fas fa-gem"></i></div>
-                <div class="floating-element"><i class="fas fa-crown"></i></div>
+    <section id="home" class="hero">
+                <!-- Background Image Slideshow (lowest z-index) -->
+        <div class="background-slideshow">
+            
+            <div class="background-slide active" style="background-image: url('images/placeholders/Eyebrow-Shaping.avif');"></div>                    
+            <div class="background-slide" style="background-image: url('images/placeholders/Eyebrow\ Transformation.jpg');"></div>                     
+            <div class="background-slide" style="background-image: url('images/placeholders/eyelashes\ \(1\).png');"></div>
+            <div class="background-slide" style="background-image: url('images/placeholders/Facial-Treatments.webp');"></div>
+            <div class="background-slide" style="background-image: url('images/placeholders/Facial-Waxing.webp');"></div>
+
+        </div>
+
+        <!-- Your existing floating elements -->
+        <div class="floating-elements">
+            <div class="floating-element"><i class="fas fa-star"></i></div>
+            <div class="floating-element"><i class="fas fa-gem"></i></div>
+            <div class="floating-element"><i class="fas fa-crown"></i></div>
+            
+        </div>
+
+        <!-- NEW: Bouncing balls container -->
+        <div class="bouncing-balls-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;">
+            <div class="bouncing-ball color-1"></div>
+            <div class="bouncing-ball color-2"></div>
+            <div class="bouncing-ball color-3"></div>
+
+
+        </div>
+
+        <!-- Your existing content -->
+        <div class="container">
+            <div class="hero-content">
+                <h2>Elegance Begins with Perfect Brows</h2>
+                <p>Experience the artistry of professional threading and eye lining. At House of Threading, we
+                    sculpt your natural beauty with precision, creating the perfect frame for your eyes.</p>
+                <a href="#services" class="btn">Discover Our Services</a>
             </div>
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Elegance Begins with Perfect Brows</h2>
-                    <p>Experience the artistry of professional threading and eye lining. At House of Threading, we sculpt your natural beauty with precision, creating the perfect frame for your eyes.</p>
-                    <a href="#services" class="btn">Discover Our Services</a>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Services Section -->
         <section id="services" class="services animate-on-scroll">
@@ -67,10 +99,12 @@
                         <div class="service-icon">
                             <i class="fas fa-eye"></i>
                         </div>
-                        <h3>Eyebrow  & Face Threading</h3>
-                        <p>Precise hair removal technique that creates clean, defined brows. Perfect for sensitive skin and achieving exact shapes that complement your facial features.</p>
+                        <h3>Eyebrow & Face Threading</h3>
+                        <p>Precise hair removal technique that creates clean, defined brows. Perfect for sensitive skin
+                            and achieving exact shapes that complement your facial features.</p>
                         <!-- <div class="service-price">$15 - $25</div> -->
-                         <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5" class="btn">Book Now</a>
+                        <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5"
+                            class="btn">Book Now</a>
 
                     </div>
                     <div class="service-card">
@@ -78,18 +112,22 @@
                             <i class="fas fa-magic"></i>
                         </div>
                         <h3>Lift & Lamination</h3>
-                        <p>Custom brow design to enhance your natural features. Includes consultation to determine the most flattering shape for your face.</p>
+                        <p>Custom brow design to enhance your natural features. Includes consultation to determine the
+                            most flattering shape for your face.</p>
                         <!-- <div class="service-price">$30 - $50</div> -->
-                         <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5" class="btn">Book Now</a>
+                        <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5"
+                            class="btn">Book Now</a>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-palette"></i>
                         </div>
                         <h3>Tinting Eye Brows & Lashes</h3>
-                        <p>Semi-permanent color for brows and lashes. Enhances definition and eliminates the need for daily makeup application.</p>
+                        <p>Semi-permanent color for brows and lashes. Enhances definition and eliminates the need for
+                            daily makeup application.</p>
                         <!-- <div class="service-price">$20 - $35</div> -->
-                        <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5" class="btn">Book Now</a>
+                        <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5"
+                            class="btn">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -101,15 +139,22 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h3>The Art of Beautiful Brows</h3>
-                        <p>At House of Threading, we believe that beautiful brows are the foundation of confidence. With years of expertise in traditional threading techniques and modern eye enhancement, we bring you the perfect blend of artistry and precision.</p>
-                        <p>Our skilled professionals understand that every face is unique, and we take pride in creating customized looks that enhance your natural beauty while maintaining the highest standards of hygiene and comfort.</p>
-                        <p>Experience the difference that true craftsmanship makes. Your brows deserve nothing less than perfection.</p>
-                       <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true" class="btn">Schedule Consultation</a>
+                        <p>At House of Threading, we believe that beautiful brows are the foundation of confidence. With
+                            years of expertise in traditional threading techniques and modern eye enhancement, we bring
+                            you the perfect blend of artistry and precision.</p>
+                        <p>Our skilled professionals understand that every face is unique, and we take pride in creating
+                            customized looks that enhance your natural beauty while maintaining the highest standards of
+                            hygiene and comfort.</p>
+                        <p>Experience the difference that true craftsmanship makes. Your brows deserve nothing less than
+                            perfection.</p>
+                        <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true"
+                            class="btn">Schedule Consultation</a>
 
                     </div>
                     <div class="about-image">
                         <div class="about-image-container">
-                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=500&h=400&fit=crop" alt="Professional threading service" style="width: 100%; height: 400px; object-fit: cover;">
+                            <img src="images/placeholders/Lift & Lamination.png" alt="Professional threading service"
+                                style="width: 100%; height: 400px; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -129,21 +174,26 @@
                             <i class="fas fa-award"></i>
                         </div>
                         <h4>Expert Professionals</h4>
-                        <p>Certified threading specialists with years of experience in precision brow shaping and eye enhancement.</p>
+                        <p>Certified threading specialists with years of experience in precision brow shaping and eye
+                            enhancement.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h4>Hygienic & Safe</h4>
-                        <p>We maintain the highest standards of cleanliness and use only sterilized tools for your safety.</p>
+                        <p>We maintain the highest standards of cleanliness and use only sterilized tools for your
+                            safety.</p>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
+                            <!-- <i class="fas fa-heart"></i> -->
+                            <i class="fas fa-walking"></i>
+                            <i class="fas fa-sign-in-alt"></i>
                         </div>
-                        <h4>Gentle on Skin</h4>
-                        <p>Our threading technique is gentle and perfect for sensitive skin, causing minimal irritation.</p>
+                        <h4>Walk-ins Welcome</h4>
+                        <p>No appointment needed! Drop by anytime and we'll take care of you with the same quality service.</p>
+                       
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
@@ -166,7 +216,9 @@
                 <div class="testimonial-slider">
                     <div class="testimonial-item">
                         <div class="testimonial-text">
-                            "The threading service at House of Threading is absolutely amazing! My eyebrows have never looked better. The precision and attention to detail is unmatched. I wouldn't go anywhere else!"
+                            "The threading service at House of Threading is absolutely amazing! My eyebrows have never
+                            looked better. The precision and attention to detail is unmatched. I wouldn't go anywhere
+                            else!"
                         </div>
                         <div class="stars">
                             <i class="fas fa-star"></i>
@@ -185,9 +237,11 @@
         <section class="cta animate-on-scroll">
             <div class="container">
                 <h2>Ready to Transform Your Look?</h2>
-                <p>Book your appointment today and experience the House of Threading difference. Let us help you achieve the perfect brows you've always wanted.</p>
-                <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true" class="btn">Book Appointment Now</a>
-
+                <p>Book your appointment today and experience the House of Threading difference. Let us help you achieve
+                    the perfect brows you've always wanted.</p>
+                <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true"
+                    class="btn">Book Appointment Now</a> 
+                                    <a href="index.html"class="btn">Visit our Beautician Salon</a>
             </div>
         </section>
 
@@ -224,7 +278,8 @@
                         <h3>Business Hours</h3>
                         <p>Visit us during our convenient business hours. Walk-ins welcome based on availability.</p>
                         <div class="service-price">Mon-Sat: 10AM-7PM</div>
-                        <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true" class="btn">Book Online</a>
+                        <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true"
+                            class="btn">Book Online</a>
                     </div>
                 </div>
             </div>
@@ -237,13 +292,15 @@
             <div class="footer-container">
                 <div class="footer-section">
                     <div class="logo">
-                     <img src="images/logo.png" alt="Samira Beautician Salon Salon Logo"> 
+                        <img src="images/logo.png" alt="Samira Beautician Salon Salon Logo">
                         <h4>House of Threading</h4>
                     </div>
                     <p>Providing premium threading and eye lining services.
-                         Our mission is to help you achieve beautiful, perfectly shaped brows that enhance your natural beauty.</p>
+                        Our mission is to help you achieve beautiful, perfectly shaped brows that enhance your natural
+                        beauty.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1FeZ7F1siq/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/share/1FeZ7F1siq/?mibextid=wwXIfr"><i
+                                class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/samira.beautician"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
@@ -257,21 +314,23 @@
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
-                        <p><a href="services.html#hair">Hair Styling</a></p>
-                        <p><a href="services.html#treatments">Hair Treatments</a></p>
-                        <p><a href="services.html#facial">Facial Treatments</a></p>
-                        <p><a href="services.html#eyebrows">Eyebrow Services</a></p>
-                        <p><a href="services.html#waxing">Waxing & Threading</a></p>
-                        <p><a href="services.html#Tatoo">Permanent Makeup & Tatoo</a></p>
-                        <p><a href="services.html#nail">Nail Services</a></p>
+                    <p><a href="services.html#hair">Hair Styling</a></p>
+                    <p><a href="services.html#treatments">Hair Treatments</a></p>
+                    <p><a href="services.html#facial">Facial Treatments</a></p>
+                    <p><a href="services.html#eyebrows">Eyebrow Services</a></p>
+                    <p><a href="services.html#waxing">Waxing & Threading</a></p>
+                    <p><a href="services.html#Tatoo">Permanent Makeup & Tatoo</a></p>
+                    <p><a href="services.html#nail">Nail Services</a></p>
                 </div>
                 <div class="footer-section">
                     <h4>Contact Info</h4>
-                    <p><i class="fas fa-phone" style="color: var(--golden); margin-right: 8px;"></i><a href="tel:+15068995120">+1 (506)
+                    <p><i class="fas fa-phone" style="color: var(--golden); margin-right: 8px;"></i><a
+                            href="tel:+15068995120">+1 (506)
                             899-5120</a></p>
                     <p><i class="fas fa-envelope" style="color: var(--golden); margin-right: 8px;"></i> <a
                             href="mailto:samira.goodarziii@gmail.com">samira.goodarziii@gmail.com</a></p>
-                    <p><i class="fas fa-clock" style="color: var(--golden); margin-right: 8px;"></i>Mon - Sat : 10AM - 7PM</p>
+                    <p><i class="fas fa-clock" style="color: var(--golden); margin-right: 8px;"></i>Mon - Sat : 10AM -
+                        7PM</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -282,4 +341,5 @@
 
 
 </body>
+
 </html>
