@@ -1,4 +1,4 @@
-        window.addEventListener('load', function() {
+  window.addEventListener('load', function() {
             setTimeout(function() {
                 const loadingScreen = document.getElementById('loading-screen');
                 const mainContent = document.getElementById('main-content');
@@ -14,5 +14,5 @@
                     }
                     mainContent.classList.add('show');
                 }, 800);
-            }, 2500); // Show for 2.5 seconds to see full grow effect
+            }, 2500); // Show for 1.5 seconds - smooth and quick
         });
