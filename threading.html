@@ -14,13 +14,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/thread-page.css">
     <link rel="stylesheet" href="css/bounce.css">
+    <link rel="stylesheet" href="css/threading-review.css">
     <script src="js/thread-page.js" defer></script>
     <script src="js/bounce.js" defer></script>
+    <script src="js/thread-review.js" defer></script>
 
 </head>
 
 <body>
- <header>
+    <header>
         <div class="container1">
             <div class="header-container">
                 <div class="logo">
@@ -46,41 +48,45 @@
 
     <main>
         <!-- Hero Section -->
-    <section id="home" class="hero">
-                <!-- Background Image Slideshow (lowest z-index) -->
-        <div class="background-slideshow">
-            
-            <div class="background-slide active" style="background-image: url('images/placeholders/Eyebrow-Shaping.avif');"></div>                     
-            <div class="background-slide" style="background-image: url('images/placeholders/Eyebrow\ Transformation.jpg');"></div>                     
-            <div class="background-slide" style="background-image: url('images/placeholders/Facial-Treatments.webp');"></div>
-        </div>
+        <section id="home" class="hero">
+            <!-- Background Image Slideshow (lowest z-index) -->
+            <div class="background-slideshow">
 
-        <!-- Your existing floating elements -->
-        <div class="floating-elements">
-            <div class="floating-element"><i class="fas fa-star"></i></div>
-            <div class="floating-element"><i class="fas fa-gem"></i></div>
-            <div class="floating-element"><i class="fas fa-crown"></i></div>           
-        </div>
+                <div class="background-slide active"
+                    style="background-image: url('images/placeholders/young-woman-beauty-salon.jpg');"></div>
+                <div class="background-slide"
+                    style="background-image: url('images/placeholders/Eyebrow\ Transformation.jpg');"></div>
+                <div class="background-slide" style="background-image: url('images/placeholders/eyelashes (2).png');">
+                </div>
+            </div>
 
-
-        <!-- NEW: Bouncing balls container -->
-        <div class="bouncing-balls-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;">
-            <div class="bouncing-ball color-1"></div>
-            <div class="bouncing-ball color-2"></div>
-            <div class="bouncing-ball color-3"></div>
+            <!-- Your existing floating elements -->
+            <div class="floating-elements">
+                <div class="floating-element"><i class="fas fa-star"></i></div>
+                <div class="floating-element"><i class="fas fa-gem"></i></div>
+                <div class="floating-element"><i class="fas fa-crown"></i></div>
+            </div>
 
 
-        </div>
+            <!-- NEW: Bouncing balls container -->
+            <div class="bouncing-balls-container"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;">
+                <div class="bouncing-ball color-1"></div>
+                <div class="bouncing-ball color-2"></div>
+                <div class="bouncing-ball color-3"></div>
 
-        <!-- Your existing content -->    
+
+            </div>
+
+            <!-- Your existing content -->
             <div class="hero-content">
                 <h2>Elegance Begins with Perfect Brows</h2>
                 <p>Experience the artistry of professional threading and eye lining. At House of Threading, we
                     sculpt your natural beauty with precision, creating the perfect frame for your eyes.</p>
                 <a href="#services" class="btn">Discover Our Services</a>
             </div>
-       
-    </section>
+
+        </section>
 
         <!-- Services Section -->
         <section id="services" class="services animate-on-scroll">
@@ -97,7 +103,6 @@
                         <h3>Eyebrow & Face Threading</h3>
                         <p>Precise hair removal technique that creates clean, defined brows. Perfect for sensitive skin
                             and achieving exact shapes that complement your facial features.</p>
-                        <!-- <div class="service-price">$15 - $25</div> -->
                         <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5"
                             class="btn">Book Now</a>
 
@@ -109,7 +114,6 @@
                         <h3>Lift & Lamination</h3>
                         <p>Custom brow design to enhance your natural features. Includes consultation to determine the
                             most flattering shape for your face.</p>
-                        <!-- <div class="service-price">$30 - $50</div> -->
                         <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5"
                             class="btn">Book Now</a>
                     </div>
@@ -120,7 +124,6 @@
                         <h3>Tinting Eye Brows & Lashes</h3>
                         <p>Semi-permanent color for brows and lashes. Enhances definition and eliminates the need for
                             daily makeup application.</p>
-                        <!-- <div class="service-price">$20 - $35</div> -->
                         <a href="https://www.fresha.com/a/samira-moncton-80-victoria-st-p2keimje/booking?allOffer=true&cartId=d1994c56-bac7-4b15-862a-15df662556a5"
                             class="btn">Book Now</a>
                     </div>
@@ -187,8 +190,9 @@
                             <i class="fas fa-sign-in-alt"></i>
                         </div>
                         <h4>Walk-ins Welcome</h4>
-                        <p>No appointment needed! Drop by anytime and we'll take care of you with the same quality service.</p>
-                       
+                        <p>No appointment needed! Drop by anytime and we'll take care of you with the same quality
+                            service.</p>
+
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
@@ -208,23 +212,62 @@
                     <h2>What Our Clients Say</h2>
                     <p>Real experiences from our satisfied clients</p>
                 </div>
-                <div class="testimonial-slider">
-                    <div class="testimonial-item">
-                        <div class="testimonial-text">
-                            "The threading service at House of Threading is absolutely amazing! My eyebrows have never
-                            looked better. The precision and attention to detail is unmatched. I wouldn't go anywhere
-                            else!"
+                <div class="house-reviews-section" id="houseReviewsSection">
+                    <div class="house-reviews-header">
+                        <h2 class="house-reviews-title">Client Testimonials</h2>
+                        <button class="add-house-review-btn" id="addHouseReviewBtn"
+                            title="Share Your Experience">+</button>
+                    </div>
+
+                    <div class="house-reviews-carousel" id="houseReviewsCarousel">
+                        <div class="house-reviews-track" id="houseReviewsTrack">
+                            <!-- Reviews will be loaded here -->
                         </div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="testimonial-author">- Melannie Duponds</div>
+
+                        <button class="house-carousel-arrows house-arrow-left" id="housePrevBtn">‹</button>
+                        <button class="house-carousel-arrows house-arrow-right" id="houseNextBtn">›</button>
+                    </div>
+
+                    <div class="house-carousel-nav" id="houseCarouselNav">
+                        <!-- Navigation dots will be added here -->
                     </div>
                 </div>
+
+                <!-- Add House Review Modal -->
+                <div class="house-modal" id="houseReviewModal">
+                    <div class="house-modal-content">
+                        <span class="house-close-btn" id="houseCloseModal">&times;</span>
+                        <h3>Share Your Experience</h3>
+                        <form id="houseReviewForm">
+                            <div class="house-form-group">
+                                <label for="houseReviewerName">Your Name</label>
+                                <input type="text" id="houseReviewerName" name="name" required
+                                    placeholder="Enter your name">
+                            </div>
+
+                            <div class="house-form-group">
+                                <label>Rating</label>
+                                <div class="house-rating-input" id="houseRatingInput">
+                                    <span class="house-rating-star" data-rating="1">★</span>
+                                    <span class="house-rating-star" data-rating="2">★</span>
+                                    <span class="house-rating-star" data-rating="3">★</span>
+                                    <span class="house-rating-star" data-rating="4">★</span>
+                                    <span class="house-rating-star" data-rating="5">★</span>
+                                </div>
+                            </div>
+
+                            <div class="house-form-group">
+                                <label for="houseReviewText">Your Testimonial</label>
+                                <textarea id="houseReviewText" name="review" required
+                                    placeholder="Tell us about your threading experience..."></textarea>
+                            </div>
+
+                            <button type="submit" class="house-submit-btn" id="houseSubmitBtn">Submit
+                                Testimonial</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -235,8 +278,8 @@
                 <p>Book your appointment today and experience the House of Threading difference. Let us help you achieve
                     the perfect brows you've always wanted.</p>
                 <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true"
-                    class="btn">Book Appointment Now</a> 
-                                    <a href="index.html"class="btn">Visit our Beautician Salon</a>
+                    class="btn">Book Appointment Now</a>
+                <a href="index.html" class="btn">Visit our Beautician Salon</a>
             </div>
         </section>
 
@@ -326,7 +369,9 @@
                             href="mailto:samira.goodarziii@gmail.com">samira.goodarziii@gmail.com</a></p>
                     <p><i class="fas fa-clock" style="color: var(--golden); margin-right: 8px;"></i>Mon - Sat : 10AM -
                         7PM</p>
-                        <p><i class="fas fa-location-arrow"  style="color: var(--golden); margin-right: 8px" ></i><a href="https://www.google.com/maps/dir//80+Victoria+St+Moncton,+NB+E1C+4X1/@46.09105,-64.77716,15z/data=!4m5!4m4!1m0!1m2!1m1!1s0x4ca0b9398ab2092f:0x4e2c6b436e5e762a">Find US</a></p>
+                    <p><i class="fas fa-location-arrow" style="color: var(--golden); margin-right: 8px"></i><a
+                            href="https://www.google.com/maps/dir//80+Victoria+St+Moncton,+NB+E1C+4X1/@46.09105,-64.77716,15z/data=!4m5!4m4!1m0!1m2!1m1!1s0x4ca0b9398ab2092f:0x4e2c6b436e5e762a">Find
+                            US</a></p>
                 </div>
             </div>
             <div class="footer-bottom">

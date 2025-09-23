@@ -1,0 +1,556 @@
+  /* Import your existing CSS variables */
+  :root {
+      --primary-dark: #1a1a1a;
+      --secondary-dark: #2d2d2d;
+      --accent-dark: #0f0f0f;
+      --golden: #d4af37;
+      --golden-light: #f4e7b1;
+      --golden-dark: #b8941f;
+      --white: #ffffff;
+      --light-gray: #f8f8f8;
+      --dark-gray: #666666;
+      --shadow: rgba(212, 175, 55, 0.3);
+      --shadow-dark: rgba(0, 0, 0, 0.5);
+  }
+
+  /* House of Threading Reviews Section */
+  .house-reviews-section {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px var(--shadow-dark);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .house-reviews-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--golden) 0%, var(--golden-light) 100%);
+  }
+
+  .house-reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      color: var(--white);
+  }
+
+  .house-reviews-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      background: linear-gradient(45deg, var(--golden), var(--golden-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+  }
+
+  .house-reviews-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--golden) 0%, var(--golden-light) 100%);
+      border-radius: 2px;
+  }
+
+  .add-house-review-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--golden) 0%, var(--golden-dark) 100%);
+      border: none;
+      color: var(--primary-dark);
+      font-size: 2.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+      box-shadow: 0 15px 25px var(--shadow);
+      position: relative;
+      overflow: hidden;
+  }
+
+  .add-house-review-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+  }
+
+  .add-house-review-btn:hover::before {
+      left: 100%;
+  }
+
+  .add-house-review-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 35px var(--shadow);
+      background: linear-gradient(135deg, var(--golden-light) 0%, var(--golden) 100%);
+  }
+
+  .house-reviews-carousel {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+  }
+
+  .house-reviews-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: grab;
+  }
+
+  .house-reviews-track:active {
+      cursor: grabbing;
+  }
+
+  .house-review-card {
+      flex: 0 0 100%;
+      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--secondary-dark) 100%);
+      margin-right: 1rem;
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(15px);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+
+  .house-review-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--golden), var(--golden-light));
+  }
+
+  .house-review-content {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      font-style: italic;
+      position: relative;
+  }
+
+  .house-review-content::before {
+      content: '"';
+      font-size: 4rem;
+      color: var(--golden);
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      font-family: serif;
+      opacity: 0.5;
+  }
+
+  .house-review-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .house-author-info {
+      display: flex;
+      align-items: center;
+  }
+
+  .house-author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--golden), var(--golden-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      box-shadow: 0 8px 20px var(--shadow);
+  }
+
+  .house-author-details {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .house-author-name {
+      font-weight: 600;
+      color: var(--golden);
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+  }
+
+  .house-author-date {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+  }
+
+  .house-rating {
+      display: flex;
+      gap: 3px;
+  }
+
+  .house-star {
+      color: var(--golden);
+      font-size: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      animation: twinkle 2s infinite alternate;
+  }
+
+  .house-star:nth-child(2) {
+      animation-delay: 0.2s;
+  }
+
+  .house-star:nth-child(3) {
+      animation-delay: 0.4s;
+  }
+
+  .house-star:nth-child(4) {
+      animation-delay: 0.6s;
+  }
+
+  .house-star:nth-child(5) {
+      animation-delay: 0.8s;
+  }
+
+  .house-carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+  }
+
+  .house-nav-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.3);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+  }
+
+  .house-nav-dot.active {
+      background: var(--golden);
+      transform: scale(1.3);
+      border-color: var(--golden-light);
+      box-shadow: 0 0 15px var(--shadow);
+  }
+
+  .house-carousel-arrows {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--golden) 0%, var(--golden-dark) 100%);
+      border: none;
+      border-radius: 50%;
+      color: var(--primary-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 8px 20px var(--shadow);
+  }
+
+  .house-carousel-arrows:hover {
+      background: linear-gradient(135deg, var(--golden-light) 0%, var(--golden) 100%);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 12px 25px var(--shadow);
+  }
+
+  .house-arrow-left {
+      left: 1.5rem;
+  }
+
+  .house-arrow-right {
+      right: 1.5rem;
+  }
+
+  .house-empty-reviews {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 5rem 2rem;
+      font-size: 1.3rem;
+  }
+
+  .house-empty-reviews h3 {
+      color: var(--golden);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+  }
+
+  /* Modal Styles */
+  .house-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+  }
+
+  .house-modal-content {
+      background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+      margin: 3% auto;
+      padding: 3rem;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: modalSlideIn 0.4s ease;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .house-modal-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--golden) 0%, var(--golden-light) 100%);
+      border-radius: 25px 25px 0 0;
+  }
+
+  @keyframes modalSlideIn {
+      from {
+          opacity: 0;
+          transform: translateY(-80px) scale(0.9);
+      }
+
+      to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+      }
+  }
+
+  .house-close-btn {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--golden);
+      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212, 175, 55, 0.1);
+  }
+
+  .house-close-btn:hover {
+      color: var(--golden-light);
+      background: rgba(212, 175, 55, 0.2);
+      transform: rotate(90deg);
+  }
+
+  .house-modal h3 {
+      color: var(--golden);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      font-family: 'Playfair Display', serif;
+  }
+
+  .house-form-group {
+      margin-bottom: 2rem;
+  }
+
+  .house-form-group label {
+      display: block;
+      margin-bottom: 0.8rem;
+      color: var(--golden);
+      font-weight: 600;
+      font-size: 1.1rem;
+  }
+
+  .house-form-group input,
+  .house-form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      background: var(--accent-dark);
+      color: var(--white);
+  }
+
+  .house-form-group input::placeholder,
+  .house-form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+  }
+
+  .house-form-group input:focus,
+  .house-form-group textarea:focus {
+      outline: none;
+      border-color: var(--golden);
+      box-shadow: 0 0 20px var(--shadow);
+      background: var(--secondary-dark);
+  }
+
+  .house-form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+  }
+
+  .house-rating-input {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+  }
+
+  .house-rating-star {
+      font-size: 2.2rem;
+      color: rgba(212, 175, 55, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+
+  .house-rating-star.active,
+  .house-rating-star:hover {
+      color: var(--golden);
+      transform: scale(1.1);
+      text-shadow: 0 0 15px var(--shadow);
+  }
+
+  .house-submit-btn {
+      background: linear-gradient(135deg, var(--golden) 0%, var(--golden-dark) 100%);
+      color: var(--primary-dark);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      width: 100%;
+      box-shadow: 0 10px 25px var(--shadow);
+      position: relative;
+      overflow: hidden;
+  }
+
+  .house-submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+  }
+
+  .house-submit-btn:hover::before {
+      left: 100%;
+  }
+
+  .house-submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px var(--shadow);
+      background: linear-gradient(135deg, var(--golden-light) 0%, var(--golden) 100%);
+  }
+
+  .house-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+  }
+
+  @keyframes twinkle {
+      0% {
+          opacity: 0.7;
+          transform: scale(1);
+      }
+
+      100% {
+          opacity: 1;
+          transform: scale(1.1);
+      }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+      .house-reviews-section {
+          margin: 1rem;
+          padding: 2rem 1rem;
+      }
+
+      .house-reviews-title {
+          font-size: 2.2rem;
+      }
+
+      .add-house-review-btn {
+          width: 60px;
+          height: 60px;
+          font-size: 2rem;
+      }
+
+      .house-reviews-carousel {
+          height: 300px;
+      }
+
+      .house-review-card {
+          padding: 2rem;
+      }
+
+      .house-modal-content {
+          margin: 5% auto;
+          width: 95%;
+          padding: 2rem;
+      }
+
+      .house-reviews-header {
+          flex-direction: column;
+          gap: 1.5rem;
+          text-align: center;
+      }
+
+      .house-reviews-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+      }
+  }

@@ -7,21 +7,25 @@
     <title>Samira Beautician Salon </title>
     <meta name="description"
         content="Samira Beautician Salon Salon offers professional hair styling, treatments, and beauty services for men, women, and children. Visit us for a luxurious experience.">
-   <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/load.css">
+    <link rel="stylesheet" href="css/review.css">
 
-    <script src="js/script.js" defer></script>  
-    <script src="js/load.js" defer></script>  
+    <script src="js/script.js" defer></script>
+    <script src="js/load.js" defer></script>
+    <script src="js/reviews.js" defer></script>
+    <script src="server.js" defer></script>
+
 
 </head>
 
 <body>
-                                 <!-- this is for the loading animation -->
-<div id="loading-screen">
+    <!-- this is for the loading animation -->
+    <div id="loading-screen">
         <div class="logo-container">
             <div class="spinning-logo">
                 <img src="images/logo.png" alt="Logo" class="logo-image">
@@ -56,16 +60,16 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero" >
+        <section class="hero">
             <div class="container ">
                 <h2>Beauty Beyond Boundaries</h2>
                 <p>At Samira Beautician Salon , we celebrate beauty in all its forms.
                     From flawless cuts to glowing skin, our expert team delivers personalized care for women, men, and
                     children.<br> <b>Step in, shine out.</b></p>
-                    <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true"
+                <a href="https://www.fresha.com/a/kingsman-moncton-154-humphrey-street-j0wposot/all-offer?venue=true"
                     class="btn" style="background-color: var(--pink); border-color: var(--pink);">Book an
                     Appointment</a>
-                
+
             </div>
         </section>
 
@@ -84,11 +88,12 @@
                         <P>Whether you're looking for a fresh new hairstyle, rejuvenating facial treatment, or perfect
                             eyebrows, we have the expertise and premium products to exceed your expectations. We cater
                             to men, women, and children, ensuring that everyone leaves our salon feeling refreshed and
-                            revitalized. <b><a  style="color: #B85C8A; text-decoration: none;" href="#Hijab">PRIVATE ROOM AVAILABLE FOR HIJABI WOMEN </b></a>  </P>
+                            revitalized. <b><a style="color: #B85C8A; text-decoration: none;" href="#Hijab">PRIVATE ROOM
+                                    AVAILABLE FOR HIJABI WOMEN </b></a> </P>
                         <a href="about.html" class="btn">Learn More About Us</a>
                     </div>
                     <div class="home-intro-image">
-                        <img src="images/placeholders/new_salon1.png" alt="Samira Beautician Salon Salon Interior">                      
+                        <img src="images/placeholders/new_salon1.png" alt="Samira Beautician Salon Salon Interior">
                     </div>
                 </div>
             </div>
@@ -96,8 +101,8 @@
 
         <!-- Featured Services Section -->
         <section class="section" style="background-color: var(--light-gray);" id="Hijab">
-            <div class="container" >
-                <div class="section-title" >
+            <div class="container">
+                <div class="section-title">
                     <h2>Our Featured Services</h2>
                 </div>
                 <div class="services-grid">
@@ -126,7 +131,7 @@
                             <img src="images/placeholders/private-rooms (1).jpeg" alt="Facial Treatments">
                         </div>
                         <div class="service-card-content">
-                            <h3 >Private Rooms</h3>
+                            <h3>Private Rooms</h3>
                             <p>Our private styling rooms offer a comfortable, discreet space for haircuts, coloring,
                                 and treatments—perfect for Muslim women who wear the hijab.
                                 Enjoy professional hair services in complete privacy, with respect for your values and
@@ -148,50 +153,61 @@
                     <h2>What Our Clients Say</h2>
                 </div>
                 <div class="testimonial-section">
-                    <div style="margin-bottom: 20px;">
-                        <p class="testimony-text">"I've been coming to Samira Beautician Salon for over a year now,
-                            and I'm always impressed with the quality of service.
-                            My highlights look natural and beautiful every time!"</p>
-                        <p class="stars">
-                            <i class="fa fa-star"></i> <!-- Full Star -->
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </p>
-                        <p style="color: var(--gold); font-weight: 600;">- Sarah Johnson</p>
+                    <div class="reviews-section" id="reviewsSection">
+                        <div class="reviews-header">
+                            <h2 class="reviews-title">Customer Reviews</h2>
+                            <button class="add-review-btn" id="addReviewBtn" title="Add Review">+</button>
+                        </div>
+
+                        <div class="reviews-carousel" id="reviewsCarousel">
+                            <div class="reviews-track" id="reviewsTrack">
+                                <!-- Reviews will be loaded here -->
+                            </div>
+
+                            <button class="carousel-arrows arrow-left" id="prevBtn">‹</button>
+                            <button class="carousel-arrows arrow-right" id="nextBtn">›</button>
+                        </div>
+
+                        <div class="carousel-nav" id="carouselNav">
+                            <!-- Navigation dots will be added here -->
+                        </div>
                     </div>
 
-                    <div style="margin-bottom: 20px;">
-                        <p class="testimony-text">"From the moment I stepped in, I felt like I was in the hands of true
-                            professionals.
-                            The team at Samira Beautician Salon Salon knows exactly how to make you feel confident and
-                            beautiful.
-                            I couldn't be happier with my new look!"</p>
-                        <p class="stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </p>
-                        <p style="color: var(--gold); font-weight: 600;">- Michael Rodriguez</p>
+                    <!-- Add Review Modal -->
+                    <div class="modal" id="reviewModal">
+                        <div class="modal-content">
+                            <span class="close-btn" id="closeModal">&times;</span>
+                            <h3>Add Your Review</h3>
+                            <form id="reviewForm">
+                                <div class="form-group">
+                                    <label for="reviewerName">Your Name</label>
+                                    <input type="text" id="reviewerName" name="name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Rating</label>
+                                    <div class="rating-input" id="ratingInput">
+                                        <span class="rating-star" data-rating="1">★</span>
+                                        <span class="rating-star" data-rating="2">★</span>
+                                        <span class="rating-star" data-rating="3">★</span>
+                                        <span class="rating-star" data-rating="4">★</span>
+                                        <span class="rating-star" data-rating="5">★</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reviewText">Your Review</label>
+                                    <textarea id="reviewText" name="review" required
+                                        placeholder="Share your experience..."></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-btn" id="submitBtn">Submit Review</button>
+                            </form>
+                        </div>
                     </div>
 
-                    <div>
-                        <p class="testimony-text">"I brought my husband and kids in for haircuts and styling.
-                            The staff treated us like family, and everyone left looking amazing! We will definitely be
-                            back!"</p>
-                        <p class="stars">
-                            <i class="fa fa-star"></i> <!-- Full Star -->
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <!-- <i class="fa fa-star-half-alt"></i> Half Star -->
-                        </p>
-                        <p style="color: var(--gold); font-weight: 600;">- Emily Thompson</p>
-                    </div>
+
+
                 </div>
             </div>
         </section>
@@ -204,7 +220,7 @@
                 <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px;">Book your appointment today and
                     experience the Samira Beautician Salon difference.
                     Our team is ready to help you achieve the look you've always wanted.</p>
-<a href="services.html" class="btn">Explore Our Services</a>
+                <a href="services.html" class="btn">Explore Our Services</a>
             </div>
         </section>
     </main>
