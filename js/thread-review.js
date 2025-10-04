@@ -19,8 +19,8 @@ class HouseReviewsCarousel {
 
     async loadReviews() {
         try {
-            // Fixed: Changed from '/api/house-reviews' to '/api/reviews'
-            const response = await fetch('/api/reviews');
+            // Updated to use PHP endpoint
+            const response = await fetch('/reviews.php');
             this.reviews = await response.json();
             this.renderReviews();
         } catch (error) {
@@ -233,8 +233,8 @@ class HouseReviewsCarousel {
         }
 
         try {
-            // Fixed: Changed from '/api/house-reviews' to '/api/reviews'
-            const response = await fetch('/api/reviews', {
+            // Updated to use PHP endpoint
+            const response = await fetch('/reviews.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -242,19 +242,23 @@ class HouseReviewsCarousel {
                 body: JSON.stringify(formData)
             });
 
+            const result = await response.json();
+
             if (response.ok) {
                 document.getElementById('houseReviewModal').style.display = 'none';
                 document.getElementById('houseReviewForm').reset();
                 this.selectedRating = 0;
                 this.highlightStars(0);
                 await this.loadReviews();
-                this.currentSlide = this.reviews.length - 1;
+                // Navigate to the new review (first slide since sorted by newest)
+                this.currentSlide = 0;
                 this.updateSlidePosition();
                 this.updateNavigation();
+                
+                // Show success message
+                alert('Testimonial submitted successfully!');
             } else {
-                const errorData = await response.json();
-                console.error('Server error:', errorData);
-                throw new Error(errorData.error || 'Failed to submit review');
+                throw new Error(result.error || 'Failed to submit testimonial');
             }
         } catch (error) {
             console.error('Error submitting house review:', error);

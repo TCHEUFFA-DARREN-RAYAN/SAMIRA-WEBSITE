@@ -6,7 +6,7 @@ class ReviewsCarousel {
         this.isDragging = false;
         this.startX = 0;
         this.currentX = 0;
-        this.threshold = 100; // Minimum distance for swipe
+        this.threshold = 100;
         
         this.init();
     }
@@ -19,8 +19,12 @@ class ReviewsCarousel {
 
     async loadReviews() {
         try {
-            const response = await fetch('/api/reviews');
+            const response = await fetch('reviews.php');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             this.reviews = await response.json();
+            console.log('Loaded reviews:', this.reviews);
             this.renderReviews();
         } catch (error) {
             console.error('Error loading reviews:', error);
@@ -32,12 +36,16 @@ class ReviewsCarousel {
         const track = document.getElementById('reviewsTrack');
         const nav = document.getElementById('carouselNav');
         
+        if (!track || !nav) {
+            console.error('Review elements not found');
+            return;
+        }
+        
         if (this.reviews.length === 0) {
             this.renderEmptyState();
             return;
         }
 
-        // Render review cards
         track.innerHTML = this.reviews.map(review => `
             <div class="review-card">
                 <div class="review-content">"${review.review}"</div>
@@ -56,7 +64,6 @@ class ReviewsCarousel {
             </div>
         `).join('');
 
-        // Render navigation dots
         nav.innerHTML = this.reviews.map((_, index) => 
             `<div class="nav-dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></div>`
         ).join('');
@@ -66,34 +73,48 @@ class ReviewsCarousel {
 
     renderEmptyState() {
         const track = document.getElementById('reviewsTrack');
-        track.innerHTML = `
-            <div class="empty-reviews">
-                <h3>No reviews yet</h3>
-                <p>Be the first to share your experience!</p>
-            </div>
-        `;
-        document.getElementById('carouselNav').innerHTML = '';
+        if (track) {
+            track.innerHTML = `
+                <div class="empty-reviews">
+                    <h3>No reviews yet</h3>
+                    <p>Be the first to share your experience!</p>
+                </div>
+            `;
+        }
+        const nav = document.getElementById('carouselNav');
+        if (nav) {
+            nav.innerHTML = '';
+        }
     }
 
     setupEventListeners() {
-        // Add review button
-        document.getElementById('addReviewBtn').addEventListener('click', () => {
-            document.getElementById('reviewModal').style.display = 'block';
-        });
+        const addBtn = document.getElementById('addReviewBtn');
+        const closeBtn = document.getElementById('closeModal');
+        const modal = document.getElementById('reviewModal');
+        const form = document.getElementById('reviewForm');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if (addBtn) {
+            addBtn.addEventListener('click', () => {
+                if (modal) modal.style.display = 'block';
+            });
+        }
 
-        // Close modal
-        document.getElementById('closeModal').addEventListener('click', () => {
-            document.getElementById('reviewModal').style.display = 'none';
-        });
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                if (modal) modal.style.display = 'none';
+            });
+        }
 
-        // Modal background click
-        document.getElementById('reviewModal').addEventListener('click', (e) => {
-            if (e.target.id === 'reviewModal') {
-                document.getElementById('reviewModal').style.display = 'none';
-            }
-        });
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target.id === 'reviewModal') {
+                    modal.style.display = 'none';
+                }
+            });
+        }
 
-        // Rating stars
         document.querySelectorAll('.rating-star').forEach(star => {
             star.addEventListener('click', (e) => {
                 this.selectedRating = parseInt(e.target.dataset.rating);
@@ -106,31 +127,33 @@ class ReviewsCarousel {
             });
         });
 
-        document.getElementById('ratingInput').addEventListener('mouseleave', () => {
-            this.highlightStars(this.selectedRating);
-        });
+        const ratingInput = document.getElementById('ratingInput');
+        if (ratingInput) {
+            ratingInput.addEventListener('mouseleave', () => {
+                this.highlightStars(this.selectedRating);
+            });
+        }
 
-        // Form submission
-        document.getElementById('reviewForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.submitReview();
-        });
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.submitReview();
+            });
+        }
 
-        // Arrow navigation
-        document.getElementById('prevBtn').addEventListener('click', () => this.prevSlide());
-        document.getElementById('nextBtn').addEventListener('click', () => this.nextSlide());
+        if (prevBtn) prevBtn.addEventListener('click', () => this.prevSlide());
+        if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide());
     }
 
     setupTouch() {
         const track = document.getElementById('reviewsTrack');
+        if (!track) return;
         
-        // Mouse events
         track.addEventListener('mousedown', (e) => this.startDrag(e.clientX));
         track.addEventListener('mousemove', (e) => this.drag(e.clientX));
         track.addEventListener('mouseup', () => this.endDrag());
         track.addEventListener('mouseleave', () => this.endDrag());
 
-        // Touch events
         track.addEventListener('touchstart', (e) => this.startDrag(e.touches[0].clientX));
         track.addEventListener('touchmove', (e) => {
             e.preventDefault();
@@ -143,7 +166,8 @@ class ReviewsCarousel {
         this.isDragging = true;
         this.startX = x;
         this.currentX = x;
-        document.getElementById('reviewsTrack').style.cursor = 'grabbing';
+        const track = document.getElementById('reviewsTrack');
+        if (track) track.style.cursor = 'grabbing';
     }
 
     drag(x) {
@@ -152,6 +176,8 @@ class ReviewsCarousel {
         this.currentX = x;
         const diff = this.currentX - this.startX;
         const track = document.getElementById('reviewsTrack');
+        if (!track) return;
+        
         const currentTransform = -this.currentSlide * 100;
         track.style.transform = `translateX(${currentTransform + (diff / track.parentElement.offsetWidth) * 100}%)`;
     }
@@ -161,7 +187,8 @@ class ReviewsCarousel {
         
         this.isDragging = false;
         const diff = this.currentX - this.startX;
-        document.getElementById('reviewsTrack').style.cursor = 'grab';
+        const track = document.getElementById('reviewsTrack');
+        if (track) track.style.cursor = 'grab';
         
         if (Math.abs(diff) > this.threshold) {
             if (diff > 0 && this.currentSlide > 0) {
@@ -204,7 +231,9 @@ class ReviewsCarousel {
 
     updateSlidePosition() {
         const track = document.getElementById('reviewsTrack');
-        track.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+        if (track) {
+            track.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+        }
     }
 
     updateNavigation() {
@@ -225,14 +254,37 @@ class ReviewsCarousel {
 
     async submitReview() {
         const submitBtn = document.getElementById('submitBtn');
+        const nameInput = document.getElementById('reviewerName');
+        const textInput = document.getElementById('reviewText');
+        
+        if (!submitBtn || !nameInput || !textInput) {
+            console.error('Form elements not found');
+            return;
+        }
+        
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
 
         const formData = {
-            name: document.getElementById('reviewerName').value,
-            review: document.getElementById('reviewText').value,
+            name: nameInput.value.trim(),
+            review: textInput.value.trim(),
             rating: this.selectedRating
         };
+
+        // Client-side validation
+        if (!formData.name) {
+            alert('Please enter your name');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Review';
+            return;
+        }
+
+        if (!formData.review) {
+            alert('Please enter your review');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Review';
+            return;
+        }
 
         if (!this.selectedRating) {
             alert('Please select a rating');
@@ -242,7 +294,9 @@ class ReviewsCarousel {
         }
 
         try {
-            const response = await fetch('/api/reviews', {
+            console.log('Submitting review:', formData);
+            
+            const response = await fetch('reviews.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -250,22 +304,32 @@ class ReviewsCarousel {
                 body: JSON.stringify(formData)
             });
 
+            const result = await response.json();
+            console.log('Server response:', result);
+
             if (response.ok) {
-                document.getElementById('reviewModal').style.display = 'none';
-                document.getElementById('reviewForm').reset();
+                const modal = document.getElementById('reviewModal');
+                const form = document.getElementById('reviewForm');
+                
+                if (modal) modal.style.display = 'none';
+                if (form) form.reset();
+                
                 this.selectedRating = 0;
                 this.highlightStars(0);
+                
                 await this.loadReviews();
-                // Navigate to the new review (last slide)
-                this.currentSlide = this.reviews.length - 1;
+                
+                this.currentSlide = 0;
                 this.updateSlidePosition();
                 this.updateNavigation();
+                
+                alert('Review submitted successfully!');
             } else {
-                throw new Error('Failed to submit review');
+                throw new Error(result.error || result.errors?.join(', ') || 'Failed to submit review');
             }
         } catch (error) {
             console.error('Error submitting review:', error);
-            alert('Failed to submit review. Please try again.');
+            alert('Failed to submit review: ' + error.message);
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit Review';
@@ -273,7 +337,7 @@ class ReviewsCarousel {
     }
 }
 
-// Initialize the carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing Reviews Carousel');
     new ReviewsCarousel();
 });
