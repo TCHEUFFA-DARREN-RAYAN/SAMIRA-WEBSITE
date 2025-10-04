@@ -1,4 +1,10 @@
 <?php
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 0); // Don't display errors in output
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/php_errors.log'); // Log to file
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
@@ -15,31 +21,53 @@ const REVIEWS_FILE = __DIR__ . '/data/reviews.json';
 function ensureDataDirectory() {
     $dataDir = __DIR__ . '/data';
     if (!is_dir($dataDir)) {
-        mkdir($dataDir, 0755, true);
+        if (!mkdir($dataDir, 0755, true)) {
+            error_log("Failed to create data directory: $dataDir");
+            throw new Exception('Failed to create data directory');
+        }
     }
 }
 
 // Load reviews from file
 function loadReviews() {
     if (!file_exists(REVIEWS_FILE)) {
+        error_log("Reviews file does not exist: " . REVIEWS_FILE);
         return [];
     }
     
     $data = file_get_contents(REVIEWS_FILE);
     if ($data === false) {
+        error_log("Failed to read reviews file: " . REVIEWS_FILE);
         return [];
     }
     
     $reviews = json_decode($data, true);
+    if ($reviews === null) {
+        error_log("Failed to decode JSON from reviews file");
+        return [];
+    }
     return $reviews ?: [];
 }
 
 // Save reviews to file
 function saveReviews($reviews) {
-    ensureDataDirectory();
-    $data = json_encode($reviews, JSON_PRETTY_PRINT);
-    if (file_put_contents(REVIEWS_FILE, $data) === false) {
-        throw new Exception('Failed to save reviews');
+    try {
+        ensureDataDirectory();
+        $data = json_encode($reviews, JSON_PRETTY_PRINT);
+        if ($data === false) {
+            throw new Exception('Failed to encode reviews as JSON');
+        }
+        
+        $result = file_put_contents(REVIEWS_FILE, $data);
+        if ($result === false) {
+            throw new Exception('Failed to write to reviews file: ' . REVIEWS_FILE);
+        }
+        
+        error_log("Successfully saved " . count($reviews) . " reviews");
+        return true;
+    } catch (Exception $e) {
+        error_log("Error in saveReviews: " . $e->getMessage());
+        throw $e;
     }
 }
 
@@ -79,6 +107,8 @@ function sanitizeInput($str) {
 $method = $_SERVER['REQUEST_METHOD'];
 $path = $_SERVER['REQUEST_URI'];
 
+error_log("Request: $method $path");
+
 // Parse the path to get the ID if present
 $pathParts = explode('/', trim(parse_url($path, PHP_URL_PATH), '/'));
 $endpoint = end($pathParts);
@@ -87,7 +117,6 @@ try {
     switch ($method) {
         case 'GET':
             if ($endpoint === 'stats') {
-                // GET /reviews.php/stats - Get review statistics
                 $reviews = loadReviews();
                 
                 $totalReviews = count($reviews);
@@ -109,7 +138,6 @@ try {
                     'ratingDistribution' => $ratingDistribution
                 ]);
             } elseif (ctype_digit($endpoint)) {
-                // GET /reviews.php/{id} - Get specific review
                 $reviews = loadReviews();
                 $review = array_filter($reviews, fn($r) => $r['id'] === $endpoint);
                 
@@ -120,29 +148,36 @@ try {
                     echo json_encode(array_values($review)[0]);
                 }
             } else {
-                // GET /reviews.php - Get all reviews
                 $reviews = loadReviews();
-                // Sort by date (newest first)
                 usort($reviews, function($a, $b) {
                     return strtotime($b['date']) - strtotime($a['date']);
                 });
+                error_log("Returning " . count($reviews) . " reviews");
                 echo json_encode($reviews);
             }
             break;
             
         case 'POST':
-            // POST /reviews.php - Add new review
-            $input = json_decode(file_get_contents('php://input'), true);
+            error_log("POST request received");
             
-            if (!$input) {
+            $rawInput = file_get_contents('php://input');
+            error_log("Raw input: " . $rawInput);
+            
+            $input = json_decode($rawInput, true);
+            
+            if ($input === null) {
+                error_log("JSON decode error: " . json_last_error_msg());
                 http_response_code(400);
-                echo json_encode(['error' => 'Invalid JSON data']);
+                echo json_encode(['error' => 'Invalid JSON data: ' . json_last_error_msg()]);
                 break;
             }
+            
+            error_log("Decoded input: " . print_r($input, true));
             
             // Validate input
             $errors = validateReview($input);
             if (!empty($errors)) {
+                error_log("Validation errors: " . print_r($errors, true));
                 http_response_code(400);
                 echo json_encode(['errors' => $errors]);
                 break;
@@ -150,16 +185,19 @@ try {
             
             // Create sanitized review
             $sanitizedReview = [
-                'id' => (string)(time() * 1000 + rand(0, 999)), // Simple ID generation
+                'id' => (string)(time() * 1000 + rand(0, 999)),
                 'name' => sanitizeInput($input['name']),
                 'review' => sanitizeInput($input['review']),
                 'rating' => (int)$input['rating'],
-                'date' => date('c'), // ISO 8601 format
+                'date' => date('c'),
                 'approved' => true
             ];
             
+            error_log("Sanitized review: " . print_r($sanitizedReview, true));
+            
             // Load existing reviews
             $reviews = loadReviews();
+            error_log("Loaded " . count($reviews) . " existing reviews");
             
             // Add new review
             $reviews[] = $sanitizedReview;
@@ -168,14 +206,15 @@ try {
             saveReviews($reviews);
             
             http_response_code(201);
-            echo json_encode([
+            $response = [
                 'message' => 'Review added successfully',
                 'review' => $sanitizedReview
-            ]);
+            ];
+            error_log("Sending response: " . json_encode($response));
+            echo json_encode($response);
             break;
             
         case 'DELETE':
-            // DELETE /reviews.php/{id} - Delete review
             if (!ctype_digit($endpoint)) {
                 http_response_code(400);
                 echo json_encode(['error' => 'Invalid review ID']);
@@ -203,6 +242,8 @@ try {
             break;
     }
 } catch (Exception $e) {
+    error_log("Exception caught: " . $e->getMessage());
+    error_log("Stack trace: " . $e->getTraceAsString());
     http_response_code(500);
     echo json_encode(['error' => 'Internal server error: ' . $e->getMessage()]);
 }
